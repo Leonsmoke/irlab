@@ -1,7 +1,4 @@
-import groovy.xml.dom.DOMCategory.attributes
-import org.jetbrains.kotlin.com.intellij.openapi.vfs.StandardFileSystems.jar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.util.regex.Pattern.compile
 
 plugins {
 	id("org.springframework.boot") version "2.7.8"
@@ -37,6 +34,15 @@ tasks.withType<Jar> {
 	manifest {
 		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplicationKt"
 	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	// To add all of the dependencies
+	from(sourceSets.main.get().output)
+
+	dependsOn(configurations.runtimeClasspath)
+	from({
+		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+	})
 }
 
 tasks.withType<Test> {
