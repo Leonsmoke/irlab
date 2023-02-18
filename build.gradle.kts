@@ -9,6 +9,9 @@ plugins {
 	application
 }
 
+
+
+
 group = "com.leonsmoke"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -41,5 +44,5 @@ task("stage") {
 }
 
 application {
-	mainClass.set("IrlabApplicationKt")
+	mainClass.set("com.leonsmoke.irlab.IrlabApplicationKt")
 }
