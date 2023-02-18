@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.32"
 	kotlin("plugin.spring") version "1.5.32"
+	id("com.github.johnrengelman.shadow") version "7.+"
 	application
 }
 
@@ -33,20 +34,6 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 }
 
-tasks.withType<Jar> {
-	manifest {
-		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplicationKt"
-	}
-	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-	// To add all of the dependencies
-	from(sourceSets.main.get().output)
-
-	dependsOn(configurations.runtimeClasspath)
-	from({
-		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-	})
-}
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
@@ -59,6 +46,9 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+task("stage") {
+	dependsOn("shadowJar")
+}
 
 
 application {
