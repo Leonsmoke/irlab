@@ -6,8 +6,7 @@ import org.springframework.boot.runApplication
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
-@EnableAutoConfiguration
-class IrlabApplication: SpringBootServletInitializer()
+class IrlabApplication
 
 fun main(args: Array<String>) {
 	runApplication<IrlabApplication>(*args)
