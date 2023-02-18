@@ -63,4 +63,8 @@ class IrlabController {
         return "Hello";
     }
 
+    @GetMapping("/hello")
+    fun getIndexHello(): String {
+        return "Hello";
+    }
 }
