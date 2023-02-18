@@ -11,5 +11,5 @@ FROM openjdk:${VERSION}-jre
 
 COPY --from=BUILD /src/build/libs/irlab-0.0.1-SNAPSHOT-all.jar /bin/runner/run.jar
 WORKDIR /bin/runner
-
+EXPOSE 8080
 CMD ["java","-jar","run.jar"]
