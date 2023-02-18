@@ -58,4 +58,9 @@ class IrlabController {
         return File("chars/").deleteRecursively();
     }
 
+    @GetMapping("/")
+    fun getIndex(): String {
+        return "Hello";
+    }
+
 }
