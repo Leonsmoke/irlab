@@ -4,6 +4,7 @@ FROM openjdk:${VERSION}-jdk as BUILD
 
 COPY . /src
 WORKDIR /src
+RUN chmod +x gradlew
 RUN ./gradlew --no-daemon shadowJar
 
 FROM openjdk:${VERSION}-jre
