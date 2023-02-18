@@ -35,7 +35,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Jar> {
 	manifest {
-		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplication"
+		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplicationKt"
 	}
 }
 
