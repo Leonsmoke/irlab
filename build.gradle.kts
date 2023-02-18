@@ -34,20 +34,6 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 }
 
-tasks.withType<Jar> {
-	manifest {
-		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplicationKt"
-	}
-	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-	// To add all of the dependencies
-	from(sourceSets.main.get().output)
-
-	dependsOn(configurations.runtimeClasspath)
-	from({
-		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-	})
-}
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
