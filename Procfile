@@ -1,1 +1,0 @@
-web: java -jar build/libs/irlab-0.0.1-SNAPSHOT-all.jar
