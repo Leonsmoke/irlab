@@ -51,3 +51,4 @@ task("stage") {
 application {
 	mainClass.set("com.leonsmoke.irlab.IrlabApplicationKt")
 }
+
