@@ -5,7 +5,6 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.32"
 	kotlin("plugin.spring") version "1.5.32"
-	id("com.github.johnrengelman.shadow") version "7.+"
 	application
 }
 
@@ -60,9 +59,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-task("stage") {
-	dependsOn("shadowJar")
-}
 
 
 application {
