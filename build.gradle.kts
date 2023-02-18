@@ -9,11 +9,6 @@ plugins {
 	application
 }
 
-
-application {
-	mainClass.set("com.leonsmoke.irlab.IrlabApplicationKt")
-}
-
 group = "com.leonsmoke"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -43,4 +38,8 @@ tasks.withType<Test> {
 
 task("stage") {
 	dependsOn("shadowJar")
+}
+
+application {
+	mainClass.set("IrlabApplicationKt")
 }
