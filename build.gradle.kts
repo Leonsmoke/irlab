@@ -1,3 +1,5 @@
+import groovy.xml.dom.DOMCategory.attributes
+import org.jetbrains.kotlin.com.intellij.openapi.vfs.StandardFileSystems.jar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.regex.Pattern.compile
 
@@ -31,6 +33,13 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+tasks.withType<Jar> {
+	manifest {
+		attributes["Main-Class"] = "com.leonsmoke.irlab.IrlabApplication"
+	}
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
