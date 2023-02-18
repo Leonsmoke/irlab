@@ -41,3 +41,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+task("stage") {
+	dependsOn("shadowJar")
+}
