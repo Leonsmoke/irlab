@@ -9,7 +9,7 @@ RUN ./gradlew --no-daemon shadowJar
 
 FROM openjdk:${VERSION}-jre
 
-COPY --from=BUILD /src/build/libs/step-by-step-kotlin-all.jar /bin/runner/run.jar
+COPY --from=BUILD /src/build/libs/irlab-0.0.1-SNAPSHOT-all.jar /bin/runner/run.jar
 WORKDIR /bin/runner
 
 CMD ["java","-jar","run.jar"]
