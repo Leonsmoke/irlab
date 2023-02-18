@@ -1,14 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
-	id("org.springframework.boot") version "2.7.8"
+	id("org.springframework.boot") version "2.2.2.RELEASE"
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 	id("com.github.johnrengelman.shadow") version "7.+"
 	application
 }
-
 
 
 
@@ -22,12 +22,11 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	testImplementation("io.projectreactor:reactor-test")
 }
-
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
@@ -48,4 +47,3 @@ task("stage") {
 application {
 	mainClass.set("com.leonsmoke.irlab.IrlabApplicationKt")
 }
-
